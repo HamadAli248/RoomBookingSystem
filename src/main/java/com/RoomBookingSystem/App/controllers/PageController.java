@@ -1,10 +1,11 @@
 package com.RoomBookingSystem.App.controllers;
 
+import com.RoomBookingSystem.App.Booking;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PageController {
@@ -19,6 +20,25 @@ public class PageController {
 
         return "home";
 
+    }
+
+    // executes on page load
+    @GetMapping("/room1")
+    public String roomOne(Model model){
+
+        model.addAttribute("booking", new Booking());
+        return "bookRoom1";
+
+    }
+
+    // executes on submit
+    @PostMapping("/room1")
+    public String room1Submit(@ModelAttribute("booking") Booking booking) {
+
+
+
+        //redirects to thank you screen on submit
+        return "thankYou";
     }
 
 }
