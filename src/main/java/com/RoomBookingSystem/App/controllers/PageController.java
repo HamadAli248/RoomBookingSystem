@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PageController {
 
     @GetMapping("/home")
-    public String giveOptions(
-            @RequestParam(value = "name", required = false,
-                    defaultValue = "Everyone"  ) String name, Model model) {
-        model.addAttribute("user", name);
-        return "hello";
+    public String giveOptions(){
+        return "home";
     }
 
 }
