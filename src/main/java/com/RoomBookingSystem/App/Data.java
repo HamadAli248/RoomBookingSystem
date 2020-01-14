@@ -11,29 +11,50 @@ public class Data {
     private List<Booking> jsonString = new ArrayList<>();
 
 
-    public Data() {
+    public Data() throws SQLException {
+
+        /////////////POSTGRESQL FOR HAMAD///////////////////////////////////
 
 
         Connection connect = null;
-
         try {
-            // directs to driver (added in the dependencies)
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
+
             connect = DriverManager
-                    //info from workbench - port/schemaName, user, password
-                    .getConnection("jdbc:mysql://localhost:3306/JavaProjectDatabase",
-                            "root", "password");
+                    .getConnection("jdbc:postgresql://localhost:5432/roomBookingSystem",
+                            "hamad", "password");
+            System.out.println("DataBase opened Successfully");
 
-            System.out.println("DB Opened Successfully");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-            // sets up statement through which the db can be queried
-            Statement stmt = connect.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bookings");
+
+        /////////////////MYSQL FOR MAT/////////////////////////////////////////
 
 
-            while (rs.next()){
+        // Connection connect = null;
 
-                jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date"),rs.getTime("start_time"), rs.getDate("end_date"),rs.getTime("end_time")  ));
+//        try {
+//            // directs to driver (added in the dependencies)
+//            Class.forName("com.mysql.jdbc.Driver");
+//            connect = DriverManager
+//                    //info from workbench - port/schemaName, user, password
+//                    .getConnection("jdbc:mysql://localhost:3306/JavaProjectDatabase",
+//                            "root", "password");
+//
+//            System.out.println("DB Opened Successfully");
+
+        // sets up statement through which the db can be queried
+        Statement stmt = connect.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from bookings");
+
+
+        while (rs.next()) {
+
+            jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date"), rs.getTime("start_time"), rs.getDate("end_date"), rs.getTime("end_time")));
 
 //                jsonString.add(Boolean e)
 
@@ -45,20 +66,21 @@ public class Data {
 //                System.out.print(rs.getDate("end_date")+"\t");
 //                System.out.print(rs.getTime("end_time")+"\t");
 
-            }
+        }
 //
 
 
-            connect.close();
+        connect.close();
 
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
+//        } catch (ClassNotFoundException | SQLException e) {
+//            e.printStackTrace();
     }
+
+
     public List<Booking> getAPI(){
         return jsonString;
+
+
     }
 }
+
