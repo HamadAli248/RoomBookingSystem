@@ -33,9 +33,9 @@ public class PageController {
 
     // executes on submit
     @PostMapping("/room1")
-    public String room1Submit(@ModelAttribute("booking") Booking booking) {
+    public String room1Submit(@ModelAttribute Booking booking) {
 
-
+        Booking booked = new Booking();
 
         //redirects to thank you screen on submit
         return "thankYou";

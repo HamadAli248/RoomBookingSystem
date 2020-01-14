@@ -33,7 +33,7 @@ public class Data {
 
             while (rs.next()){
 
-                jsonString.add(new Booking(rs.getString("booker_name"), rs.getDate("start_date"),rs.getTime("start_time"), rs.getDate("end_date"),rs.getTime("end_time")  ));
+                jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date"),rs.getTime("start_time"), rs.getDate("end_date"),rs.getTime("end_time")  ));
 
 //                jsonString.add(Boolean e)
 

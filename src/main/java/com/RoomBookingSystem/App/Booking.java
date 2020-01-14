@@ -5,13 +5,15 @@ import java.util.Date;
 
 public class Booking {
     private String _name;
+    private int _room;
     private Date _startDate;
     private Time _startTime;
     private Date _endDate;
     private Time _endTime;
 
-    public Booking(String name, Date startDate, Time startTime, Date endDate, Time endTime){
+    public Booking(String name, int room, Date startDate, Time startTime, Date endDate, Time endTime){
         this._name = name;
+        this._room = room;
         this._startDate = startDate;
         this._startTime = startTime;
         this._endDate = endDate;
@@ -24,6 +26,10 @@ public class Booking {
 
     public String get_name() {
         return _name;
+    }
+
+    public int get_room() {
+        return _room;
     }
 
     public Date get_startDate() {
@@ -45,6 +51,10 @@ public class Booking {
     // SETTERS
     public void set_name(String _name) {
         this._name = _name;
+    }
+
+    public void set_room(int _room) {
+        this._room = _room;
     }
 
     public void set_startDate(Date _startDate) {
