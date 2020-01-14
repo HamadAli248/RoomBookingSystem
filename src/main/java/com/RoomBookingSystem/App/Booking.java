@@ -49,27 +49,32 @@ public class Booking {
     }
 
     // SETTERS
-    public void set_name(String _name) {
-        this._name = _name;
+    public void set_name(String name) {
+        this._name = name;
     }
 
-    public void set_room(int _room) {
-        this._room = _room;
+    public void set_room(int room) {
+        this._room = room;
     }
 
-    public void set_startDate(Date _startDate) {
-        this._startDate = _startDate;
+    public void set_startDate(Date startDate) {
+        this._startDate = startDate;
     }
 
-    public void set_startTime(Time _startTime) {
-        this._startTime = _startTime;
+    public void set_startTime(Time startTime) {
+        this._startTime = startTime;
     }
 
-    public void set_endDate(Date _endDate) {
-        this._endDate = _endDate;
+    public void set_endDate(Date endDate) {
+        this._endDate = endDate;
     }
 
-    public void set_endTime(Time _endTime) {
-        this._endTime = _endTime;
+    public void set_endTime(Time endTime) {
+        this._endTime = endTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + this._name + "From: " + this._startDate + " " + this._startTime + " until: " + this._endDate + " " + this._endTime;
     }
 }
