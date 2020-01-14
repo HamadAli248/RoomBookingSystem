@@ -1,6 +1,7 @@
 package com.RoomBookingSystem.App.controllers;
 
 import com.RoomBookingSystem.App.Booking;
+import com.RoomBookingSystem.App.MyServlet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +33,8 @@ public class PageController {
     }
 
     // executes on submit
-    @PostMapping("/room1")
+    @PostMapping("/myServlet")
     public String room1Submit(@ModelAttribute Booking booking) {
-
-        Booking booked = new Booking();
 
         //redirects to thank you screen on submit
         return "thankYou";
