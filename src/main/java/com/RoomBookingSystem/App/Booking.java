@@ -11,7 +11,7 @@ public class Booking {
     private Date _endDate;
     private Time _endTime;
 
-    public Booking(String name, int room, Date startDate, Time startTime, Date endDate, Time endTime){
+       public Booking(String name, int room, Date startDate, Time startTime, Date endDate, Time endTime){
         this._name = name;
         this._room = room;
         this._startDate = startDate;
@@ -20,7 +20,15 @@ public class Booking {
         this._endTime = endTime;
     }
 
-    public Booking(){};
+    public Booking(String hamad, int room, Date parse, Date parse1, Date parse2, Date parse3) {
+    }
+
+    public Booking() {
+
+    }
+
+
+//    public Booking(){};
 
     // GETTERS
 
