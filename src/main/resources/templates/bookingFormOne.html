@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Book The Pink Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
 </head>
 <body>
 <h1>The Pink Room</h1>
 
-<form action="#" th:action="@{/room1}" th:object="${booking}" method="POST">
+<form action="#" th:action="@{/room1}" th:object="${booking}" method="post">
     <div>
         <label for="startDate">Start Date:</label>
         <input type="date" name="startDate" id="startDate" th:field="*{startDate}"/>
@@ -27,9 +27,9 @@
         <input type="text" name="bookerName" id="bookerName" th:field="*{name}"/>
     </div>
 
-    <input type="hidden" value="1" name="room" th:field="*{room}"/>
+    <input type="hidden" value="1" name="room" th:field="*{room}" />
 
-    <button name="submit" value="0" type="submit">Book!</button>
+    <button name="submit" value="submit" type="submit">Book!</button>
 </form>
 
 </body>

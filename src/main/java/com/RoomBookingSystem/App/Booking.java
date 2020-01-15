@@ -7,20 +7,25 @@ public class Booking {
     private String _name;
     private int _room;
     private Date _startDate;
-    private Time _startTime;
+    private Date _startTime;
     private Date _endDate;
-    private Time _endTime;
+    private Date _endTime;
 
-    public Booking(String name, int room, Date startDate, Time startTime, Date endDate, Time endTime){
+    StringToDate ToDate = new StringToDate();
+
+    public Booking(String name, int room, String startDate, String startTime, String endDate, String endTime) throws Exception {
+
         this._name = name;
         this._room = room;
-        this._startDate = startDate;
-        this._startTime = startTime;
-        this._endDate = endDate;
-        this._endTime = endTime;
+        this._startDate = ToDate.ToDate(startDate);
+        this._startTime = ToDate.ToTime(startTime);
+        this._endDate = ToDate.ToDate(endDate);
+        this._endTime = ToDate.ToTime(endTime);
     }
 
-    public Booking(){};
+
+
+        public Booking(){};
 
     // GETTERS
 
@@ -36,7 +41,7 @@ public class Booking {
         return _startDate;
     }
 
-    public Time get_startTime() {
+    public Date get_startTime() {
         return _startTime;
     }
 
@@ -44,7 +49,7 @@ public class Booking {
         return _endDate;
     }
 
-    public Time get_endTime() {
+    public Date get_endTime() {
         return _endTime;
     }
 
@@ -57,20 +62,20 @@ public class Booking {
         this._room = room;
     }
 
-    public void set_startDate(Date startDate) {
-        this._startDate = startDate;
+    public void set_startDate(String startDate) throws Exception {
+        this._startDate = ToDate.ToDate(startDate);
     }
 
-    public void set_startTime(Time startTime) {
-        this._startTime = startTime;
+    public void set_startTime(String startTime) throws Exception {
+        this._startTime = ToDate.ToTime(startTime);
     }
 
-    public void set_endDate(Date endDate) {
-        this._endDate = endDate;
+    public void set_endDate(String endDate) throws Exception {
+        this._endDate = ToDate.ToDate(endDate);
     }
 
-    public void set_endTime(Time endTime) {
-        this._endTime = endTime;
+    public void set_endTime(String endTime) throws Exception {
+        this._endTime = ToDate.ToTime(endTime);
     }
 
     @Override

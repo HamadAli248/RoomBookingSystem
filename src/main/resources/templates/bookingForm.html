@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Book The Pink Room</title>
+</head>
+<body>
+<h1>The Pink Room</h1>
+
+<form action="/room1" method="POST">
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" id="startDate" />
+        <label for="startTime">Start Time:</label>
+        <input type="time" name="startTime" id="startTime" />
+    </div>
+
+    <div>
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" id="endDate" />
+        <label for="endTime">End Time:</label>
+        <input type="time" name="endTime" id="endTime" />
+    </div>
+
+    <div>
+        <label for="bookerName">Name:</label>
+        <input type="text" name="bookerName" id="bookerName" />
+    </div>
+
+    <input type="hidden" value="1" name="room" />
+
+    <button name="submit" value="0" type="submit">Book!</button>
+</form>
+
+</body>
+</html>
