@@ -1,4 +1,4 @@
-package controllers;
+package com.RoomBookingSystem.App.controllers;
 import com.RoomBookingSystem.App.Booking;
 import com.RoomBookingSystem.App.Data;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class ApiController {
 
     @GetMapping("/api")
 
-    public List<Booking> apiReturn() throws SQLException {
+    public List<Booking> apiReturn() throws Exception {
 //
         List<Booking> hello = new Data().getAPI();
 

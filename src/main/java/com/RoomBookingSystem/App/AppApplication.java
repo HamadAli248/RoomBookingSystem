@@ -19,7 +19,7 @@ public class AppApplication {
 
 
 
-		Booking b = new Booking("Matt", 1, "2009/12/31", "09:00", "2009/12/31", "09:30");
+		Booking b = new Booking("Matt", 1, "2009-12-31", "09:00", "2009-12-31", "09:30");
 
 		System.out.println(b.get_name());
 

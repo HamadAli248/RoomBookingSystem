@@ -10,6 +10,7 @@ import java.util.List;
 public class Data {
 
     private List<Booking> jsonString = new ArrayList<>();
+    StringToDate toDate = new StringToDate();
 
     public List<Booking> getAPI () {
         return jsonString;
@@ -56,6 +57,7 @@ public class Data {
             ResultSet rs = stmt.executeQuery("select * from bookings");
 
             while (rs.next()) {
+
 
                 jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date").toString(), rs.getTime("start_time").toString(), rs.getDate("end_date").toString(), rs.getTime("end_time").toString()));
 

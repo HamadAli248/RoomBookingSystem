@@ -13,7 +13,7 @@ public class DatabaseQuery {
 
     public void inputFromFrontEnd() throws Exception {
 
-        Booking booking = new Booking("Hamad",1,"12-02-2020","12:30", "13-02-2020", "12:45");
+        Booking booking = new Booking("Hamad",1,"2020-02-12","12:30", "2020-02-13", "12:45");
 
     }
 
