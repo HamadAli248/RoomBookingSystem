@@ -1,4 +1,5 @@
 package com.RoomBookingSystem.App;
+import com.RoomBookingSystem.App.*;
 
 
 import java.sql.Time;
@@ -10,18 +11,9 @@ import java.util.Date;
 
 public class DatabaseQuery {
 
-    public void inputFromFrontEnd() throws ParseException {
+    public void inputFromFrontEnd() throws Exception {
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-
-        Booking booking = new Booking("Hamad",1,dateFormat.parse("12-02-2020"), timeFormat.parse("12:30"), dateFormat.parse("13-02-2020"), timeFormat.parse("12:45"));
-
-
-
-
-
-
+        Booking booking = new Booking("Hamad",1,"2020-02-12","12:30", "2020-02-13", "12:45");
 
     }
 
