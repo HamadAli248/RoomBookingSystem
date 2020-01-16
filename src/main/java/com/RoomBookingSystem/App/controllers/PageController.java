@@ -16,7 +16,7 @@ public class PageController {
     public String bookingForm(Model model) {
         model.addAttribute("booking", new Booking());
 
-//        return "bookingForm";
+//        return "bookingForm1";
         return "bookingFormOne";
     }
 
@@ -32,6 +32,8 @@ public class PageController {
         System.out.println("greeting2 room: " + currentBooking.get_room());
         return "thankYou";
     }
+
+
 
 }
 
