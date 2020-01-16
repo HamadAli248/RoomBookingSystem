@@ -85,6 +85,6 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Name: " + this._name + "From: " + this._startDate + " " + this._startTime + " until: " + this._endDate + " " + this._endTime;
+        return "Name: " + this._name + " From: " + this._startDate + " " + this._startTime + " until: " + this._endDate + " " + this._endTime;
     }
 }

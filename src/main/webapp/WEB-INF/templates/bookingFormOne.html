@@ -7,29 +7,29 @@
 <body>
 <h1>The Pink Room</h1>
 
-<form th:action="@{/room1}" th:object="${booking}" method="post">
+<form action="#" th:action="@{/room1}" th:object="${booking}" method="post">
     <div>
         <label for="startDate">Start Date:</label>
-        <input type="date" name="startDate" id="startDate" th:field="*{_startDate}"/>
+        <input type="date" id="startDate" th:field="*{_startDate}"/>
         <label for="startTime">Start Time:</label>
-        <input type="time" name="startTime" id="startTime" th:field="*{_startTime}"/>
+        <input type="time" id="startTime" th:field="*{_startTime}"/>
     </div>
 
     <div>
         <label for="endDate">End Date:</label>
-        <input type="date" name="endDate" id="endDate" th:field="*{_endDate}"/>
+        <input type="date" id="endDate" th:field="*{_endDate}"/>
         <label for="endTime">End Time:</label>
-        <input type="time" name="endTime" id="endTime" th:field="*{_endTime}"/>
+        <input type="time" id="endTime" th:field="*{_endTime}"/>
     </div>
 
     <div>
         <label for="bookerName">Name:</label>
-        <input type="text" name="bookerName" id="bookerName" th:field="*{_name}"/>
+        <input type="text" id="bookerName" th:field="*{_name}"/>
     </div>
 
-    <input type="hidden" value="1" name="room" th:field="*{_room}" />
+    <input type="hidden" value="1" th:field="*{_room}" />
 
-    <button name="submit" value="submit" type="submit">Book!</button>
+    <button name="submit"  type="submit">Book!</button>
 </form>
 
 </body>
