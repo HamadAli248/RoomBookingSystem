@@ -20,12 +20,13 @@ public class Booking {
         this._endTime = endTime;
     }
 
-    public Booking(String hamad, int room, Date parse, Date parse1, Date parse2, Date parse3) {
-    }
 
     public Booking() {
 
     }
+
+//    public Booking(String name, int room, Date startDate, Date startTime, Date endDate, Date endTime) {
+//    }
 
 
 //    public Booking(){};

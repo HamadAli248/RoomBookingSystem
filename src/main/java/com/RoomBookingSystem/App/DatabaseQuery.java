@@ -15,14 +15,16 @@ public class DatabaseQuery {
         SimpleDateFormat dateFormat = new SimpleDateFormat("DD-MM-YYYY");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-        Booking booking = new Booking("Hamad",1,dateFormat.parse("12-02-2020"), timeFormat.parse("12:30"), dateFormat.parse("13-02-2020"), timeFormat.parse("12:45"));
+        Booking booking = new Booking("Hamad",1,dateFormat.parse("12-jan-2020"), timeFormat.parse("12:30"), dateFormat.parse("13-jan-2020"), timeFormat.parse("12:45"));
 
+        System.out.println(booking.get_name());
 
-
-
-
-
-
+        String name = booking.get_name();
+        int room = booking.get_room();
+        Date startDate = booking.get_startDate();
+        Time startTime = booking.get_startTime();
+        Date endDate = booking.get_endDate();
+        Time time = booking.get_endTime();l
     }
 
 
@@ -33,6 +35,13 @@ public class DatabaseQuery {
 
         String query = " insert into  roomBookingSystem(start_time,start_date,end_time,end_date,booker_name,start_date,room_number)" +
                 "values(?,?,?,?,?,?)";
+
+
+
+
+
+
+
 
 
 
