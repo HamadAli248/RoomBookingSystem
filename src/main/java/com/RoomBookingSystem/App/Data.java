@@ -1,4 +1,5 @@
- 
+package com.RoomBookingSystem.App;
+import com.RoomBookingSystem.App.*;
 
 import javax.swing.*;
 import java.sql.*;
@@ -10,8 +11,32 @@ public class Data {
 
     private List<Booking> jsonString = new ArrayList<>();
 
+    public List<Booking> getAPI () {
+        return jsonString;
+    }
 
-    public Data() {
+    public Data() throws Exception {
+
+        /////////////POSTGRESQL FOR HAMAD///////////////////////////////////
+
+//
+//        Connection connect = null;
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//
+//            connect = DriverManager
+//                    .getConnection("jdbc:postgresql://localhost:5432/roomBookingSystem",
+//                            "hamad", "password");
+//            System.out.println("DataBase opened Successfully");
+//
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+
+        /////////////////MYSQL FOR MAT/////////////////////////////////////////
 
 
         Connection connect = null;
@@ -30,10 +55,10 @@ public class Data {
             Statement stmt = connect.createStatement();
             ResultSet rs = stmt.executeQuery("select * from bookings");
 
+            while (rs.next()) {
 
-            while (rs.next()){
+                jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date").toString(), rs.getTime("start_time").toString(), rs.getDate("end_date").toString(), rs.getTime("end_time").toString()));
 
-                jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date").toString(),rs.getTime("start_time").toString(), rs.getDate("end_date").toString(),rs.getTime("end_time").toString()  ));
 
 //                jsonString.add(Boolean e)
 
@@ -50,16 +75,19 @@ public class Data {
 
 
             connect.close();
+//    } catch (ClassNotFoundException | SQLException e) {
+//        e.printStackTrace();
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+
+
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+
         }
 
 
-    }
-    public List<Booking> getAPI(){
-        return jsonString;
     }
 }

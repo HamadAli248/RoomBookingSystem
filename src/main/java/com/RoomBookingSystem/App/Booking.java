@@ -1,5 +1,6 @@
- 
+package com.RoomBookingSystem.App;
 
+import com.RoomBookingSystem.App.*;
 import java.util.Date;
 
 public class Booking {
@@ -23,8 +24,13 @@ public class Booking {
     }
 
 
+    public Booking() {
 
-        public Booking(){};
+    }
+
+
+
+
 
     // GETTERS
 

@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 @Controller
 public class PageController {
@@ -22,9 +21,11 @@ public class PageController {
     }
 
     @PostMapping("/room1")
-    public String bookingSubmit(@ModelAttribute Booking booking) throws Exception {
 
-//        Booking currentBooking = new Booking("Matt", 1, "2009/12/31", "09:00", "2009/12/31", "09:30");
+    public String room1Submit(@ModelAttribute Booking booking) throws Exception {
+//
+        Booking booked = new Booking();
+
 
         Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
         System.out.println("greeting2 name: " + currentBooking.get_name());
