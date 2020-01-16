@@ -24,9 +24,9 @@ public class PageController {
     @PostMapping("/room1")
     public String bookingSubmit(@ModelAttribute Booking booking) throws Exception {
 
-        Booking currentBooking = new Booking("Matt", 1, "2009/12/31", "09:00", "2009/12/31", "09:30");
+//        Booking currentBooking = new Booking("Matt", 1, "2009/12/31", "09:00", "2009/12/31", "09:30");
 
-//        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate(), booking.get_startTime(), booking.get_endDate(), booking.get_endTime());
+        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
         System.out.println("greeting2 name: " + currentBooking.get_name());
         System.out.println("greeting2 room: " + currentBooking.get_room());
         return "thankYou";

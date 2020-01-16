@@ -1,4 +1,4 @@
-package com.RoomBookingSystem.App.controllers;
+package controllers;
 import com.RoomBookingSystem.App.Booking;
 import com.RoomBookingSystem.App.Data;
 import org.springframework.web.bind.annotation.GetMapping;
