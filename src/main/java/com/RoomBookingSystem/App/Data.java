@@ -1,4 +1,5 @@
 package com.RoomBookingSystem.App;
+import com.RoomBookingSystem.App.*;
 
 import javax.swing.*;
 import java.sql.*;
@@ -9,52 +10,57 @@ import java.util.List;
 public class Data {
 
     private List<Booking> jsonString = new ArrayList<>();
+    StringToDate toDate = new StringToDate();
 
+    public List<Booking> getAPI () {
+        return jsonString;
+    }
 
-    public Data() throws SQLException {
+    public Data() throws Exception {
 
         /////////////POSTGRESQL FOR HAMAD///////////////////////////////////
 
-
-        Connection connect = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-
-            connect = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/roomBookingSystem",
-                            "hamad", "password");
-            System.out.println("DataBase opened Successfully");
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//
+//        Connection connect = null;
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//
+//            connect = DriverManager
+//                    .getConnection("jdbc:postgresql://localhost:5432/roomBookingSystem",
+//                            "hamad", "password");
+//            System.out.println("DataBase opened Successfully");
+//
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
 
         /////////////////MYSQL FOR MAT/////////////////////////////////////////
 
 
-        // Connection connect = null;
+        Connection connect = null;
 
-//        try {
-//            // directs to driver (added in the dependencies)
-//            Class.forName("com.mysql.jdbc.Driver");
-//            connect = DriverManager
-//                    //info from workbench - port/schemaName, user, password
-//                    .getConnection("jdbc:mysql://localhost:3306/JavaProjectDatabase",
-//                            "root", "password");
-//
-//            System.out.println("DB Opened Successfully");
+        try {
+            // directs to driver (added in the dependencies)
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager
+                    //info from workbench - port/schemaName, user, password
+                    .getConnection("jdbc:mysql://localhost:3306/JavaProjectDatabase",
+                            "root", "password");
 
-        // sets up statement through which the db can be queried
-        Statement stmt = connect.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from bookings");
+            System.out.println("DB Opened Successfully");
+
+            // sets up statement through which the db can be queried
+            Statement stmt = connect.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings");
+
+            while (rs.next()) {
 
 
-        while (rs.next()) {
+                jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date").toString(), rs.getTime("start_time").toString(), rs.getDate("end_date").toString(), rs.getTime("end_time").toString()));
 
-            jsonString.add(new Booking(rs.getString("booker_name"), rs.getInt("room_number"), rs.getDate("start_date"), rs.getTime("start_time"), rs.getDate("end_date"), rs.getTime("end_time")));
 
 //                jsonString.add(Boolean e)
 
@@ -66,21 +72,24 @@ public class Data {
 //                System.out.print(rs.getDate("end_date")+"\t");
 //                System.out.print(rs.getTime("end_time")+"\t");
 
-        }
+            }
 //
 
 
-        connect.close();
+            connect.close();
+//    } catch (ClassNotFoundException | SQLException e) {
+//        e.printStackTrace();
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
 
-//        } catch (ClassNotFoundException | SQLException e) {
-//            e.printStackTrace();
-    }
 
 
-    public List<Booking> getAPI(){
-        return jsonString;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+
+        }
 
 
     }
 }
-

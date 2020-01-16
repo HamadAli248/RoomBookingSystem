@@ -7,41 +7,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.sql.Time;
-import java.util.Date;
+
 
 @Controller
 public class PageController {
-    private String name = "Matthew!!!";
 
-
-    @GetMapping("/")
-    public String giveOptions(Model model){
-
-        // Passes string (name) in, where defined in home.html
-        model.addAttribute("user", name);
-
-        return "home";
-
-    }
-
-    // executes on page load
     @GetMapping("/room1")
-    public String roomOne(Model model){
-
+    public String bookingForm(Model model) {
         model.addAttribute("booking", new Booking());
-        return "bookRoom1";
 
+//        return "bookingForm1";
+        return "bookingFormOne";
     }
 
-    // executes on submit
     @PostMapping("/room1")
-    public String room1Submit(@ModelAttribute Booking booking) {
+
+    public String room1Submit(@ModelAttribute Booking booking) throws Exception {
 //
         Booking booked = new Booking();
 
-        //redirects to thank you screen on submit
+
+        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
+        System.out.println("greeting2 name: " + currentBooking.get_name());
+        System.out.println("greeting2 room: " + currentBooking.get_room());
         return "thankYou";
     }
 
+
+
 }
+
+

@@ -17,7 +17,7 @@ public class ApiController {
 
     @GetMapping("/api")
 
-    public List<Booking> apiReturn() throws SQLException {
+    public List<Booking> apiReturn() throws Exception {
 //
         List<Booking> hello = new Data().getAPI();
 

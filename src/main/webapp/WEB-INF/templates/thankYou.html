@@ -8,8 +8,7 @@
 
     <h1>Thank you for your booking!</h1>
 
-    <h2 th:text="'Name: ' + ${booking._name}"></h2>
-    <h3 th:text="'Start Date: ' + ${booking._startDate} + '     Start Time: ' + ${booking._startTime}"></h3>
+    <h2 th:text="${booking}"></h2>
 
 </body>
 </html>
