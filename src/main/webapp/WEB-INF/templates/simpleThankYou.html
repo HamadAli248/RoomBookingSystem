@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Thanks For Booking</title>
+</head>
+<body>
+
+<h1>Thank you for your booking!</h1>
+
+<h2 th:text="'name: ' + ${simpleBooking.name}"></h2>
+<h2 th:text="'start time: ' + ${simpleBooking.startTimeString}"></h2>
+<h2 th:text="'start date: ' + ${simpleBooking.startDateString}"></h2>
+
+</body>
+</html>

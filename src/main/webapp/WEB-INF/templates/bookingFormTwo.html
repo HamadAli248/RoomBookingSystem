@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book The Pink Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+</head>
+<body>
+<h1>The Pink Room</h1>
+
+<form action="#" th:action="@{/room2}" th:object="${simpleBooking}" method="post">
+
+
+    <div>
+        <label for="bookerName">Name:</label>
+        <input type="text" id="bookerName" th:field="*{name}"/>
+    </div>
+
+    <div>
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" th:field="*{startTimeString}"/>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" th:field="*{startDateString}"/>
+    </div>
+
+
+
+
+
+
+    <button name="submit"  type="submit">Book!</button>
+</form>
+
+</body>
+</html>
