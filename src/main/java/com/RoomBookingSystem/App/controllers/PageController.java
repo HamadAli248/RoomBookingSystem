@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PageController {
 
+    public SimpleBooking currentBooking;
+    int room;
+
     @GetMapping("/")
     public String giveOptions(Model model) {
 
@@ -26,6 +29,8 @@ public class PageController {
 
     @GetMapping("/room1")
     public String bookingForm(Model model) {
+
+
         model.addAttribute("booking", new Booking());
 
 //        return "bookingForm1";
@@ -33,23 +38,45 @@ public class PageController {
     }
 
     @PostMapping("/room1")
+    public String room1Submit(@ModelAttribute SimpleBooking simpleBooking) throws Exception {
 
-    public String room1Submit(@ModelAttribute Booking booking) throws Exception {
+        room = 2;
+        System.out.println("simpleBooking name: " + simpleBooking.getName());
+        System.out.println("simpleBooking Time: " + simpleBooking.getStartTimeString());
+        System.out.println("simpleBooking Date: " + simpleBooking.getStartDateString());
 
-        System.out.println("booking start date: " + booking.get_startDate());
+        System.out.println("ROOM: " + simpleBooking.getRoom());
 
-
-        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), "2009-10-01", "08:00", "2019-03-20", "08:00");
-//        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
+        currentBooking = new SimpleBooking(simpleBooking.getName(), simpleBooking.getStartTimeString(), simpleBooking.getStartDateString(), room);
 
         System.out.println("============= New Booking Object ============");
-        System.out.println("name: " + currentBooking.get_name());
-        System.out.println("room: " + currentBooking.get_room());
-        System.out.println("S. Date: " + currentBooking.get_startDate());
+        System.out.println("Name: " + currentBooking.getName());
+        System.out.println("Time: " + currentBooking.getStartTime());
+        System.out.println("Date: " + currentBooking.getStartDate());
+        System.out.println("ROOM: " + currentBooking.getRoom());
 
-
-        return "thankYou";
+        return "simpleThankYou";
     }
+
+//
+//    @PostMapping("/room1")
+//
+//    public String room1Submit(@ModelAttribute Booking booking) throws Exception {
+//
+//        System.out.println("booking start date: " + booking.get_startDate());
+//
+//
+//        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), "2009-10-01", "08:00", "2019-03-20", "08:00");
+////        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
+//
+//        System.out.println("============= New Booking Object ============");
+//        System.out.println("name: " + currentBooking.get_name());
+//        System.out.println("room: " + currentBooking.get_room());
+//        System.out.println("S. Date: " + currentBooking.get_startDate());
+//
+//
+//        return "thankYou";
+//    }
 
     @GetMapping("/room2")
     public String simpleForm(Model model) {
@@ -60,22 +87,22 @@ public class PageController {
     }
 
     @PostMapping("/room2")
-
     public String simpleSubmit(@ModelAttribute SimpleBooking simpleBooking) throws Exception {
 
-
+        room = 2;
         System.out.println("simpleBooking name: " + simpleBooking.getName());
-        System.out.println("simpleBooking Time: " + simpleBooking.getStartTime());
-        System.out.println("simpleBooking Date: " + simpleBooking.getStartDate());
+        System.out.println("simpleBooking Time: " + simpleBooking.getStartTimeString());
+        System.out.println("simpleBooking Date: " + simpleBooking.getStartDateString());
 
+        System.out.println("ROOM: " + simpleBooking.getRoom());
 
-        SimpleBooking currentBooking = new SimpleBooking(simpleBooking.getName(), simpleBooking.getStartTimeString(), simpleBooking.getStartDateString());
-//        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
+        currentBooking = new SimpleBooking(simpleBooking.getName(), simpleBooking.getStartTimeString(), simpleBooking.getStartDateString(), room);
 
         System.out.println("============= New Booking Object ============");
         System.out.println("Name: " + currentBooking.getName());
         System.out.println("Time: " + currentBooking.getStartTime());
         System.out.println("Date: " + currentBooking.getStartDate());
+        System.out.println("ROOM: " + currentBooking.getRoom());
 
         return "simpleThankYou";
     }

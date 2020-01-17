@@ -23,12 +23,15 @@
         <input type="date" id="startDate" th:field="*{startDateString}"/>
     </div>
 
+    <div>
+        <label for="endTime">Start Time:</label>
+        <input type="time" id="endTime" th:field="*{endTimeString}"/>
 
+        <label for="endDate">Start Date:</label>
+        <input type="date" id="endDate" th:field="*{endDateString}"/>
+    </div>
 
-
-
-
-    <button name="submit"  type="submit">Book!</button>
+    <button name="submit" type="submit">Book!</button>
 </form>
 
 </body>
