@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Booking {
     private String _name;
-    private int _room;
+    private int _room ;
     private Date _startDate;
     private Date _startTime;
     private Date _endDate;
@@ -27,10 +27,6 @@ public class Booking {
     public Booking() {
 
     }
-
-
-
-
 
     // GETTERS
 
