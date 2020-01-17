@@ -15,7 +15,7 @@ public class AppApplication {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(AppApplication.class, args);
-		Data arr = new Data();
+		PostgresqlDataConnection postgresqlDataConnection = new PostgresqlDataConnection();
 
 
 		Booking b = new Booking("Matt", 1, "2009-12-31", "09:00", "2009-12-31", "09:30");
