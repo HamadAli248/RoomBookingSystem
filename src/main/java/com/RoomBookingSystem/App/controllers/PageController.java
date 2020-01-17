@@ -65,20 +65,20 @@ public class PageController {
 
 
         System.out.println("simpleBooking name: " + simpleBooking.getName());
-        System.out.println("simpleBooking room: " + simpleBooking.getStartTime());
+        System.out.println("simpleBooking Time: " + simpleBooking.getStartTime());
+        System.out.println("simpleBooking Date: " + simpleBooking.getStartDate());
 
 
-
-        SimpleBooking currentBooking = new SimpleBooking(simpleBooking.getName(), simpleBooking.getStartTimeString());
+        SimpleBooking currentBooking = new SimpleBooking(simpleBooking.getName(), simpleBooking.getStartTimeString(), simpleBooking.getStartDateString());
 //        Booking currentBooking = new Booking(booking.get_name(), booking.get_room(), booking.get_startDate().toString(), booking.get_startTime().toString(), booking.get_endDate().toString(), booking.get_endTime().toString());
 
         System.out.println("============= New Booking Object ============");
-        System.out.println("name: " + currentBooking.getName());
-        System.out.println("room: " + currentBooking.getStartTime());
+        System.out.println("Name: " + currentBooking.getName());
+        System.out.println("Time: " + currentBooking.getStartTime());
+        System.out.println("Date: " + currentBooking.getStartDate());
 
         return "simpleThankYou";
     }
-
 
 
 }
