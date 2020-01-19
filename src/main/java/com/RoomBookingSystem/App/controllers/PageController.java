@@ -73,17 +73,18 @@ public class PageController {
 
         // sets date booked and time now to check if date is in future
         Date timeCheck = new Date();
-        Date startDate = currentBooking.getStartDate();
-        timeCheck.setDate(startDate.getDate());
-        timeCheck.setMonth(startDate.getMonth());
+        timeCheck.setDate(currentBooking.getStartTime().getDate());
+        timeCheck.setMonth(currentBooking.getStartTime().getMonth());
+        timeCheck.setYear(currentBooking.getStartTime().getYear());
         System.out.println("*****Date: " + timeCheck);
 
-        if(currentBooking.getStartTime().compareTo(currentBooking.getEndTime())>0 || currentBooking.getStartTime().compareTo(now)<0){
+        if(currentBooking.getStartTime().compareTo(currentBooking.getEndTime())>0 || (currentBooking.getStartTime().compareTo(timeCheck)<0 && currentBooking.getStartDate().compareTo(now)<0)){
             simpleBooking.setErrorRead("Please enter valid times");
             System.out.println(simpleBooking.getErrorRead());
             return "bookingFormOne";
         }
 
+        simpleBooking.setErrorRead("");
         return "simpleThankYou";
     }
 
