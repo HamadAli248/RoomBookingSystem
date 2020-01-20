@@ -78,6 +78,8 @@ public class PageController {
         timeCheck.setYear(currentBooking.getStartTime().getYear());
         System.out.println("*****Date: " + timeCheck);
 
+        System.out.println("================ COMPARISON: " + currentBooking.getStartTime().compareTo(currentBooking.getEndTime()));
+
         if(currentBooking.getStartTime().compareTo(currentBooking.getEndTime())>0 || (currentBooking.getStartTime().compareTo(timeCheck)<0 && currentBooking.getStartDate().compareTo(now)<=0)){
             simpleBooking.setErrorRead("Please enter valid times");
             System.out.println(simpleBooking.getErrorRead());
@@ -141,7 +143,7 @@ public class PageController {
         if(currentBooking.getStartDate().compareTo(currentBooking.getEndDate())>0 || currentBooking.getStartDate().compareTo(now)<0){
             simpleBooking.setErrorRead("Please enter valid dates");
             System.out.println(simpleBooking.getErrorRead());
-            return "bookingFormOne";
+            return "bookingFormTwo";
         }
 
         // sets date booked and time now to check if date is in future
@@ -153,7 +155,7 @@ public class PageController {
         if(currentBooking.getStartTime().compareTo(currentBooking.getEndTime())>0 || (currentBooking.getStartTime().compareTo(timeCheck)<0 && currentBooking.getStartDate().compareTo(now)<=0)){
             simpleBooking.setErrorRead("Please enter valid times");
             System.out.println(simpleBooking.getErrorRead());
-            return "bookingFormOne";
+            return "bookingFormTwo";
         }
 
         return "simpleThankYou";
@@ -192,7 +194,7 @@ public class PageController {
         if(currentBooking.getStartDate().compareTo(currentBooking.getEndDate())>0 || currentBooking.getStartDate().compareTo(now)<0){
             simpleBooking.setErrorRead("Please enter valid dates");
             System.out.println(simpleBooking.getErrorRead());
-            return "bookingFormOne";
+            return "bookingFormThree";
         }
 
         // sets date booked and time now to check if date is in future
@@ -204,7 +206,7 @@ public class PageController {
         if(currentBooking.getStartTime().compareTo(currentBooking.getEndTime())>0 || (currentBooking.getStartTime().compareTo(timeCheck)<0 && currentBooking.getStartDate().compareTo(now)<=0)){
             simpleBooking.setErrorRead("Please enter valid times");
             System.out.println(simpleBooking.getErrorRead());
-            return "bookingFormOne";
+            return "bookingFormThree";
         }
 
         return "simpleThankYou";

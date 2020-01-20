@@ -9,6 +9,7 @@
 
 <form action="#" th:action="@{/room3}" th:object="${simpleBooking}" method="post">
 
+    <h3 th:text="${simpleBooking.errorRead}"></h3>
 
     <div>
         <label for="bookerName">Name:</label>
