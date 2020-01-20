@@ -21,14 +21,14 @@ public class ApiController {
 
     public List<Booking> apiReturn() throws Exception {
 
-//        List<Booking> mySql = new MySqlDataBaseQuery().getAPI();
-        List<Booking> postgreSQL = new PostgresqlDataConnection().getAPI();
+        List<Booking> mySql = new MySqlDataBaseQuery().getAPI();
+//        List<Booking> postgreSQL = new PostgresqlDataConnection().getAPI();
 
 
 
 ////        System.out.println(hello.toString());
-//        return mySql;
-        return postgreSQL;
+        return mySql;
+//        return postgreSQL;
 
     }
 
