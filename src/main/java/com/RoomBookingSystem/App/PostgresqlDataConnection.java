@@ -1,10 +1,15 @@
 package com.RoomBookingSystem.App;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class PostgresqlDataConnection {
+
+
 
         private List<Booking> jsonString = new ArrayList<>();
         StringToDate toDate = new StringToDate();
@@ -13,8 +18,23 @@ public class PostgresqlDataConnection {
             return jsonString;
         }
 
-        public PostgresqlDataConnection() throws Exception {
-            Booking booking = new Booking();
+        public PostgresqlDataConnection(){
+            Connection connect = null;
+            try {
+                Class.forName("org.postgresql.Driver");
+
+                connect = DriverManager
+                        .getConnection("jdbc:postgresql://localhost:5432/roomBookingSystem",
+                                "hamad", "password");
+                System.out.println("DataBase opened Successfully");
+                } catch (ClassNotFoundException | SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        public PostgresqlDataConnection(SimpleBooking currBook) throws Exception {
+//            Booking booking = new Booking();
 
         Connection connect = null;
         try {
@@ -25,6 +45,8 @@ public class PostgresqlDataConnection {
                             "hamad", "password");
             System.out.println("DataBase opened Successfully");
 
+
+
             /// getting statement to get things back from the database
 
 //                Statement stmt = connect.createStatement();
@@ -34,15 +56,23 @@ public class PostgresqlDataConnection {
 //                    connect.close();
 //                }
 
-                String query = " insert into  roomBookingSystem(start_time,start_date,end_time,end_date,booker_name,room_number)" +
-                "values(?,?,?,?,?)";
+//            System.out.println("================================" + new java.sql.Date(currBook.getStartDate().getTime())+ "======================================");
+//            System.out.println("================================" + new java.sql.Time(currBook.getStartTime().getTime()) + "======================================");
+//            System.out.println("================================" + new java.sql.Time(currBook.getEndTime().getTime())+ "======================================");
+
+
+
+                String query = " insert into  room_booking(start_time,start_date,end_time,end_date,booker_name,room_number)" +
+                "values(?,?,?,?,?,?)";
                 PreparedStatement preparedStatement = connect.prepareStatement(query);
-                preparedStatement.setDate(2, (Date) booking.get_startTime());
-                preparedStatement.setDate(2, (Date) booking.get_startDate());
-                preparedStatement.setDate(2, (Date) booking.get_endTime());
-                preparedStatement.setDate(2, (Date) booking.get_endDate());
-                preparedStatement.setString(1,booking.get_name());
-                preparedStatement.setInt(1,booking.get_room());
+                preparedStatement.setTime(1, new java.sql.Time(currBook.getStartTime().getTime()));
+                preparedStatement.setDate(2,new java.sql.Date(currBook.getStartDate().getTime()));
+                preparedStatement.setTime(3,new java.sql.Time(currBook.getEndTime().getTime()));
+                preparedStatement.setDate(4, new java.sql.Date(currBook.getEndDate().getTime()));
+                preparedStatement.setString(5,currBook.getName());
+                preparedStatement.setInt(6,currBook.getRoom());
+                preparedStatement.execute();
+                System.out.println("==================================================Your Booking has been entered in the database========================================");
 
 
             } catch (ClassNotFoundException | SQLException e) {
