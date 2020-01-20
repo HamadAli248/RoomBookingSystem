@@ -1,6 +1,7 @@
 package com.RoomBookingSystem.App.controllers;
 
 import com.RoomBookingSystem.App.Booking;
+import com.RoomBookingSystem.App.PostgresqlDataConnection;
 import com.RoomBookingSystem.App.SimpleBooking;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -208,6 +209,12 @@ public class PageController {
             System.out.println(simpleBooking.getErrorRead());
             return "bookingFormThree";
         }
+
+        // if(db query = error){ return "this room is already booked"}
+
+        //DB Add
+        new PostgresqlDataConnection(currentBooking);
+
 
         return "simpleThankYou";
     }
