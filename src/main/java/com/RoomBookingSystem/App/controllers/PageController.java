@@ -1,6 +1,7 @@
 package com.RoomBookingSystem.App.controllers;
 
 import com.RoomBookingSystem.App.Booking;
+import com.RoomBookingSystem.App.MySqlDataBaseQuery;
 import com.RoomBookingSystem.App.PostgresqlDataConnection;
 import com.RoomBookingSystem.App.SimpleBooking;
 import org.springframework.stereotype.Controller;
@@ -87,6 +88,10 @@ public class PageController {
             return "bookingFormOne";
         }
 
+        //DB Add
+        //new PostgresqlDataConnection(currentBooking);
+        new MySqlDataBaseQuery(currentBooking);
+
         simpleBooking.setErrorRead("");
         return "simpleThankYou";
     }
@@ -159,6 +164,10 @@ public class PageController {
             return "bookingFormTwo";
         }
 
+        //DB Add
+        //new PostgresqlDataConnection(currentBooking);
+        new MySqlDataBaseQuery(currentBooking);
+
         return "simpleThankYou";
     }
 
@@ -212,9 +221,9 @@ public class PageController {
 
         // if(db query = error){ return "this room is already booked"}
 
-        //DB Add
-        new PostgresqlDataConnection(currentBooking);
-
+       //DB Add
+        //new PostgresqlDataConnection(currentBooking);
+        new MySqlDataBaseQuery(currentBooking);
 
         return "simpleThankYou";
     }
