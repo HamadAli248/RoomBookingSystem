@@ -2,7 +2,7 @@
 
 ## Running
 
-Set up a PostgreSQL database with 3 data sets of rooms with time and date for booking.
+Set up a PostgreSQL database with 3 data column of car name, car price and carconditions.
 
 Start the database and run :
 
